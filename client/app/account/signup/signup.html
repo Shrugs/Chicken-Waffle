@@ -1,9 +1,10 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div layout="column" layout-align="center">
+<div layout="column" layout-align="center center">
 
-    <div class="md-whiteframe-z2 signup-form" layout="row" layout-align="center center">
-        <div flex="33"><h3>Signup</h3></div>
+    <div class="md-whiteframe-z2 signup-form"
+    <!-- @TODO(Shrugs) error and validation porting -->
+        <div flex="33"><h3>Sign Up</h3></div>
         <div flex="66">
             <form class="form" name="form" ng-submit="register(form)" novalidate>
                 <md-text-float name="email" label="Email" ng-model="user.email" type="email" required></md-text-float>
