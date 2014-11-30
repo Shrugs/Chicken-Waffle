@@ -7,6 +7,7 @@ angular.module('cpwApp')
         restrict: 'EA',
         link: function (scope, element, attrs) {
             scope.email = attrs.email;
+            scope.hash = window.CryptoJS.MD5(attrs.email.toLowerCase()).toString();
         }
     };
 });
