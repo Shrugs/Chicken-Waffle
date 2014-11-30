@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('cpwApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+.controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
+        'title': 'Home',
+        'link': '/'
     }];
 
     $scope.isCollapsed = true;
@@ -13,11 +13,11 @@ angular.module('cpwApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
 
     $scope.logout = function() {
-      Auth.logout();
-      $location.path('/login');
+        Auth.logout();
+        $location.path('/login');
     };
 
     $scope.isActive = function(route) {
-      return route === $location.path();
+        return route === $location.path();
     };
-  });
+});

@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('cpwApp')
-  .config(function ($stateProvider) {
-    $stateProvider
-      .state('admin', {
+.config(function ($stateProvider) {
+    $stateProvider.state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
         controller: 'AdminCtrl'
-      });
-  });
+    });
+});
