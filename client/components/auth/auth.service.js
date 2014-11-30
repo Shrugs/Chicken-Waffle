@@ -23,14 +23,14 @@ angular.module('cpwApp')
         $http.post('/auth/local', {
           email: user.email,
           password: user.password
-        }).
-        success(function(data) {
+        })
+        .success(function(data) {
           $cookieStore.put('token', data.token);
           currentUser = User.get();
           deferred.resolve(data);
           return cb();
-        }).
-        error(function(err) {
+        })
+        .error(function(err) {
           this.logout();
           deferred.reject(err);
           return cb(err);

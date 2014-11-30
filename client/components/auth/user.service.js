@@ -1,22 +1,22 @@
 'use strict';
 
 angular.module('cpwApp')
-  .factory('User', function ($resource) {
+.factory('User', function ($resource) {
     return $resource('/api/users/:id/:controller', {
-      id: '@_id'
+        id: '@_id'
     },
     {
-      changePassword: {
-        method: 'PUT',
-        params: {
-          controller:'password'
+        changePassword: {
+            method: 'PUT',
+            params: {
+                controller:'password'
+            }
+        },
+        get: {
+            method: 'GET',
+            params: {
+                id:'me'
+            }
         }
-      },
-      get: {
-        method: 'GET',
-        params: {
-          id:'me'
-        }
-      }
-	  });
-  });
+	});
+});
