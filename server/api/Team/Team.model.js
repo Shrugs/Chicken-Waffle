@@ -1,12 +1,10 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    User = require('../user/user.model');
+    Schema = mongoose.Schema;
 
 var TeamSchema = new Schema({
-  name: String,
-  members: [User]
+    name: String
 });
 
 module.exports = mongoose.model('Team', TeamSchema);

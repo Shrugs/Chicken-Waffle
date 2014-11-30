@@ -15,8 +15,8 @@ angular.module('cpwApp')
                 password: $scope.user.password
             })
             .then( function() {
-                // Account created, redirect to home
-                $location.path('/');
+                // Account created, redirect to settings to configure team associations
+                $location.path('/settings');
             })
             .catch( function(err) {
                 err = err.data;
