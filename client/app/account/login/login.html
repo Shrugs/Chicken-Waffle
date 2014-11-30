@@ -3,10 +3,10 @@
 
 <div layout="column" layout-align="center center">
 
-    <div class="md-whiteframe-z2 login-form"
+    <div class="md-whiteframe-z2 login-form">
     <!-- @TODO(Shrugs) error and validation porting -->
-        <div flex="33"><h3>Login</h3></div>
-        <div flex="66">
+        <div><h3>Login</h3></div>
+        <div>
             <form class="form" name="form" ng-submit="login(form)" novalidate>
                 <md-text-float name="email" label="Email" ng-model="user.email" type="email" required></md-text-float>
                 <md-text-float label="Password" ng-model="user.password" type="password" required></md-text-float>

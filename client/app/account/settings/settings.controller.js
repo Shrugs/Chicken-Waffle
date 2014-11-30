@@ -10,6 +10,9 @@ angular.module('cpwApp')
             Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
             .then( function() {
                 $scope.message = 'Password successfully changed.';
+                $scope.user.oldPassword = undefined;
+                $scope.user.newPassword = undefined;
+
             })
             .catch( function() {
                 form.password.$setValidity('mongoose', false);
