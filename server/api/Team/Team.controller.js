@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var Team = require('./Team.model');
+var Team = require('./Team.model').model;
 
 // Get list of Teams
 exports.index = function(req, res) {

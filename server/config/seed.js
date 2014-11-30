@@ -6,7 +6,7 @@
 'use strict';
 
 var User = require('../api/user/user.model');
-var Team = require('../api/Team/Team.model');
+var Team = require('../api/Team/Team.model').model;
 
 User.find({}).remove(function() {
   User.create({
@@ -28,13 +28,13 @@ User.find({}).remove(function() {
 
 Team.find({}).remove(function() {
     Team.create({
-        name: 'Data Team'
+        name: 'Data'
     }, {
-        name: 'Frontend Team'
+        name: 'Frontend'
     }, {
-        name: 'Backend Team'
+        name: 'Backend'
     }, {
-        name: 'Ops Team'
+        name: 'Ops'
     }, {
         name: 'Test Team, Please Ignore'
     }, function() {

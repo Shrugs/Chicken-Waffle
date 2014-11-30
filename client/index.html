@@ -61,12 +61,15 @@
       <script src="bower_components/hammerjs/hammer.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
       <script src="bower_components/cryptojslib/rollups/md5.js"></script>
+      <script src="bower_components/lodash/dist/lodash.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/Team/Team.service.js"></script>
+          <script src="app/TeamCard/TeamCard.directive.js"></script>
           <script src="app/UserCard/UserCard.directive.js"></script>
           <script src="app/account/account.js"></script>
           <script src="app/account/login/login.controller.js"></script>

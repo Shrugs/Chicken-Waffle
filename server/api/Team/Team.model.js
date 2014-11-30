@@ -7,4 +7,7 @@ var TeamSchema = new Schema({
     name: String
 });
 
-module.exports = mongoose.model('Team', TeamSchema);
+module.exports = {
+    model: mongoose.model('Team', TeamSchema),
+    schema: TeamSchema
+};

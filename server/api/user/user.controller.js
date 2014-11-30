@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var Team = require('../Team/Team.model').model;
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -98,4 +99,19 @@ exports.me = function(req, res, next) {
  */
 exports.authCallback = function(req, res, next) {
   res.redirect('/');
+};
+
+
+exports.update = function(req, res) {
+    Team.find({
+        name: {$in: req.body.teams}
+    }, function(err, teams) {
+        User.findById(req.body._id, '-salt -hashedPassword', function(err, user) {
+            user.teams = teams;
+            user.save(function(err, user) {
+                if (err) return validationError(res, err);
+                res.json(user);
+            });
+        })
+    });
 };

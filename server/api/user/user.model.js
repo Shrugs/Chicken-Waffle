@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
-var Team = require('../Team/Team.model');
+var Team = require('../Team/Team.model').schema;
 
 var UserSchema = new Schema({
   email: { type: String, lowercase: true },

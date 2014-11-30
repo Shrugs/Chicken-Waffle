@@ -1,24 +1,44 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
+<div flex layout="column" layout-align="center center" layout-fill>
 
-<div layout="column" layout-align="center center">
-
-    <div class="md-whiteframe-z2 login-form">
-        <div><h3>Change Password</h3></div>
-        <div>
-            <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-                <md-text-float label="Old Password" ng-model="user.oldPassword" type="password" required></md-text-float>
-                <md-text-float label="New Password" ng-model="user.newPassword" type="password" required ng-minlength="3"></md-text-float>
-                <p class="help-block"
-                   ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-                  Password must be at least 3 characters.
-                </p>
-                <p class="help-block"> {{ message }} </p>
-                <div>
-                    <md-button type="submit">Change Password</md-button>
-                </div>
-            </form>
-
+    <md-content class="md-padding">
+        <div flex class="md-whiteframe-z2 login-form">
+            <div><h3>Change Password</h3></div>
+            <div>
+                <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+                    <md-text-float label="Old Password" ng-model="user.oldPassword" type="password" required></md-text-float>
+                    <md-text-float label="New Password" ng-model="user.newPassword" type="password" required ng-minlength="3"></md-text-float>
+                    <p class="help-block" ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+                      Password must be at least 3 characters.
+                    </p>
+                    <p class="help-block">{{ message }}</p>
+                    <div>
+                        <md-button type="submit">Change Password</md-button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </md-content>
+
+    <md-content flex class="md-padding">
+        <div class="md-whiteframe-z2 teams-form">
+            <div flex>
+                <div layout="column" layout-align="center">
+                    <h3>My Teams</h3>
+                </div>
+            </div>
+            <div flex>
+                <div layout="row" layout-align="space-around center">
+                    <team-card ng-repeat="team in teams" ng-model="selectedTeams[team.name]">{{ team.name }}</team-card>
+                </div>
+            </div>
+            <div flex class="new-team-cont">
+                <md-card flex layout="row" layout-align="center center">
+                    <md-text-float label="New Team Name" ng-model="newTeamName"></md-text-float>
+                    <md-button ng-click="createNewTeam()" ng-disabled="!newTeamName">Create Team</md-button>
+                </md-card>
+            </div>
+        </div>
+    </md-content>
 </div>
