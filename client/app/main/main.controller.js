@@ -1,30 +1,24 @@
 'use strict';
 
 angular.module('cpwApp')
-.controller('MainCtrl', function ($scope, $window, Auth) {
+.controller('MainCtrl', function ($scope, $window, Auth, Match) {
     $scope.generate1plus1s = function() {
-
+        // generate new matches and reload
     };
+
+    Match.get().$promise.then(function(match) {
+        $scope.pairs = match.pairs;
+    });
 
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.height = $window.innerHeight;
 
-    // $scope.matches = [
+    // $scope.pairs = [
     //     {
-    //         first: {
-    //             email: 'm@cond.in'
-    //         },
-    //         second: {
-    //             email: 'mattcmultimedia@gmail.com'
-    //         }
+    //         people: ['m@cond.in', 'mattcmultimedia@gmail.com']
     //     },
     //     {
-    //         first: {
-    //             email: 'm@cond.in'
-    //         },
-    //         second: {
-    //             email: 'mattcmultimedia@gmail.com'
-    //         }
-    //     }
+    //         people: ['m@cond.in', 'mattcmultimedia@gmail.com']
+    //     },
     // ];
 });

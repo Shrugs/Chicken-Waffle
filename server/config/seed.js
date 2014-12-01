@@ -7,6 +7,7 @@
 
 var User = require('../api/user/user.model');
 var Team = require('../api/Team/Team.model').model;
+var Match = require('../api/Match/Match.model');
 
 User.find({}).remove(function() {
   User.create({
@@ -41,3 +42,19 @@ Team.find({}).remove(function() {
         console.log('Populated Teams...');
     });
 })
+
+Match.find({}).remove(function() {
+    Match.create({
+        nonce: 5,
+        pairs: [
+            {
+                people: ['m@cond.in', 'mattcmultimedia@gmail.com']
+            },
+            {
+                people: ['m@cond.in', 'mattcmultimedia@gmail.com']
+            }
+        ]
+    }, function() {
+        console.log('Populated Matches...');
+    })
+});

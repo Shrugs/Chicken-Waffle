@@ -9,14 +9,14 @@
                 <div layout="column" layout-align="center center">
                     <md-divider flex="80" class="main-divider"></md-divider>
                 </div>
-                <div layout="column" layout-align="center center" ng-hide="matches">
+                <div layout="column" layout-align="center center" ng-hide="pairs">
                     <user-card email="{{getCurrentUser().email}}"></user-card>
                 </div>
-                <div flex class="matches-cont" ng-show="matches">
-                    <div layout="column" layout-align="center center" ng-repeat="match in matches">
-                        <user-card email="{{match.first.email}}"></user-card>
+                <div flex class="matches-cont" ng-show="pairs">
+                    <div layout="column" layout-align="center center" ng-repeat="match in pairs">
+                        <user-card email="{{match.people[0]}}"></user-card>
                         <div class="plus-sign">+</div>
-                        <user-card email="{{match.second.email}}"></user-card>
+                        <user-card email="{{match.people[1]}}"></user-card>
                     </div>
                 </div>
             </div>
