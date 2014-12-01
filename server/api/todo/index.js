@@ -7,6 +7,7 @@ var Q = require('q');
 
 var now = Date.now();
 var eventbriteURL = 'https://www.eventbriteapi.com/v3/events/search?popular=true&venue.city=San+Francisco&start_date.keyword=today&token=' + config.secrets.eventbriteAPIKey
+var placesURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.7834213,-122.4084272&radius=2000&key=' + config.secrets.placesAPIKey
 
 module.exports = function(req, res) {
 
@@ -24,8 +25,10 @@ module.exports = function(req, res) {
     function getYelp(data) {
         var deferred = Q.defer();
 
-        data.yelp = {lol: 'k'};
-        deferred.resolve(data);
+        request.get(placesURL, function(e, r, body) {
+            data.places = JSON.parse(body);
+            deferred.resolve(data);
+        });
 
         return deferred.promise;
     }
