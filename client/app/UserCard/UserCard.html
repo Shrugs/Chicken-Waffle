@@ -1,7 +1,9 @@
-<md-content flex="33">
-    <md-card layout="row">
+<md-content class="md-whiteframe-z3">
+    <div layout="row">
         <img ng-src="http://www.gravatar.com/avatar/{{hash}}">
         <div flex="5"></div>
-        <p>{{ email }}</p>
-    </md-card>
+        <div flex layout="column" layout-align="start center">
+            <p>{{ email }}</p>
+        </div>
+    </div>
 </md-content>

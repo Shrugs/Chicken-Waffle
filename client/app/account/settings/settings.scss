@@ -4,8 +4,13 @@
 }
 .teams-form {
     margin-top: 20px;
+    background-color: #FFFFFF;
 }
 
 .new-team-cont {
     padding-bottom: 1px;
+}
+
+md-content.md-padding.clear-bg {
+    background-color: transparent;
 }

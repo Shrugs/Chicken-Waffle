@@ -5,6 +5,7 @@ angular.module('cpwApp')
     return {
         templateUrl: 'app/UserCard/UserCard.html',
         restrict: 'EA',
+        scope: true,
         link: function (scope, element, attrs) {
             scope.email = attrs.email;
             scope.hash = window.CryptoJS.MD5(attrs.email.toLowerCase()).toString();
