@@ -138,18 +138,4 @@ User.find({}).remove(function() {
   );
 });
 
-Match.find({}).remove(function() {
-    Match.create({
-        nonce: 0,
-        pairs: [
-            {
-                people: ['m@cond.in', 'mattcmultimedia@gmail.com']
-            },
-            {
-                people: ['m@cond.in', 'mattcmultimedia@gmail.com']
-            }
-        ]
-    }, function() {
-        console.log('Populated Matches...');
-    })
-});
+Match.find({}).remove();

@@ -2,6 +2,14 @@
 
 Pairs teammates together every week to hang out and get chicken and waffles, among other things.
 
+## Installation
+
+1. acquire mongo
+2. clone
+3. `npm install && bower install`
+4. `grunt serve`
+5. [http://localhost:9000](http://localhost:9000)
+
 ## Usage
 
 The database is seeded with the various musicians and relationships as below:
