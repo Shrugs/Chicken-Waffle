@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Match = require('./Match.model');
+var User = require('../user/user.model');
 
 function getMostRecentMatch(cb) {
     Match.find({
@@ -31,14 +32,20 @@ exports.match = function(req, res) {
 // super fun logic here
 exports.create = function(req, res) {
 
+    // need to create a 'deterministic' method of generating the combinations
+    // save the nonce (or whatever) in the match object and use it to generate the next iteration
 
-
-
-
-    Match.create(req.body, function(err, Match) {
-        if(err) { return handleError(res, err); }
-        return res.json(201, Match);
+    // first, get a list of all of the users
+    User.find().exec(function(err, users) {
+        console.log(users);
     });
+
+
+
+    // Match.create(req.body, function(err, Match) {
+    //     if(err) { return handleError(res, err); }
+    //     return res.json(201, Match);
+    // });
 };
 
 function handleError(res, err) {
