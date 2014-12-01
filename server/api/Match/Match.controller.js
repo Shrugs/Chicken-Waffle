@@ -4,8 +4,6 @@ var _ = require('lodash');
 var Match = require('./Match.model');
 var User = require('../user/user.model');
 
-var MATCH_OUTSIDE_TEAM = true;
-
 
 function getMostRecentMatch(cb) {
     Match.find({
@@ -163,9 +161,9 @@ exports.create = function(req, res) {
             // grab the leftover people and either match with self or randomly with the rest of the available people
             var leftoverPeople = emails.difference(_(pairs).flatten().value()).value();
 
-            if (MATCH_OUTSIDE_TEAM) {
+            if (req.body.pairOutsideTeam) {
                 while (leftoverPeople.length > 1) {
-                    var first = leftoverPeople.pop();
+                    var first = leftoverPeople.splice(_.random(0, leftoverPeople.length-1), 1)[0];
                     var second = leftoverPeople.splice(_.random(0, leftoverPeople.length-1), 1)[0];
                     pairs.push([first, second]);
                 }

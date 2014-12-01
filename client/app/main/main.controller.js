@@ -14,6 +14,7 @@ angular.module('cpwApp')
     $scope.generate1plus1s = function() {
         // generate new matches and reload
         var newMatch = new Match();
+        newMatch.pairOutsideTeam = $scope.pairOutsideTeam;
         newMatch.$save(function() {
             $scope.updateMatches();
         });
@@ -21,13 +22,4 @@ angular.module('cpwApp')
 
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.height = $window.innerHeight;
-
-    // $scope.pairs = [
-    //     {
-    //         people: ['m@cond.in', 'mattcmultimedia@gmail.com']
-    //     },
-    //     {
-    //         people: ['m@cond.in', 'mattcmultimedia@gmail.com']
-    //     },
-    // ];
 });
