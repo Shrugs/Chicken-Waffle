@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('cpwApp')
-.controller('AdminCtrl', function ($scope, $http, Auth, User) {
+.controller('AdminCtrl', function ($scope, $http, Auth, User, pinteresting) {
 
     // Use the User $resource to fetch all users
-    $scope.users = User.query();
+    User.query(function(users) {
+        $scope.users = pinteresting(users, 3);
+    });
 
     $scope.delete = function(user) {
         User.remove({ id: user._id });

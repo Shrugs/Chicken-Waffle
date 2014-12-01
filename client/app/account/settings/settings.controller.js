@@ -1,27 +1,11 @@
 'use strict';
 
 angular.module('cpwApp')
-.controller('SettingsCtrl', function ($scope, User, Auth, Team) {
+.controller('SettingsCtrl', function ($scope, User, Auth, Team, pinteresting) {
     $scope.errors = {};
 
-    // for some reason, I had the hardest time making this a filter
-    // returning rows (as it does now) within the filter caused a $digest recusive loop, causing angular to throw and exception
-    // no idea why it was wrong, but this works, so fuck it, ship it
-    $scope.pinteresting = function(input, n) {
-        n = n || 5;
-        // splits input array into many rows of n length each
-        if (input.length > n) {
-            var rows = [];
-            while (input.length) {
-                rows.push(input.splice(0, n));
-            }
-            return rows;
-        }
-        return input;
-    };
-
     Team.query(function(teams) {
-        $scope.teams = $scope.pinteresting(teams, 5);
+        $scope.teams = pinteresting(teams, 5);
     });
     $scope.selectedTeams = {};
     Auth.getCurrentUser().$promise.then(function(user) {
@@ -55,7 +39,7 @@ angular.module('cpwApp')
         // post new team and then reload $scope.teams
         (new Team({name: $scope.newTeamName})).$save(function() {
             Team.query(function(teams) {
-                $scope.teams = $scope.pinteresting(teams, 5);
+                $scope.teams = pinteresting(teams, 5);
             });
             $scope.newTeamName = undefined;
         });
