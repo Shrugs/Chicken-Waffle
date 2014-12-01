@@ -4,15 +4,32 @@ angular.module('cpwApp')
 .controller('SettingsCtrl', function ($scope, User, Auth, Team) {
     $scope.errors = {};
 
-    $scope.teams = Team.query();
-    $scope.myTeams = Auth.getCurrentUser().teams;
+    // for some reason, I had the hardest time making this a filter
+    // returning rows (as it does now) within the filter caused a $digest recusive loop, causing angular to throw and exception
+    // no idea why it was wrong, but this works, so fuck it, ship it
+    $scope.pinteresting = function(input, n) {
+        n = n || 5;
+        // splits input array into many rows of n length each
+        if (input.length > n) {
+            var rows = [];
+            while (input.length) {
+                rows.push(input.splice(0, n));
+            }
+            return rows;
+        }
+        return input;
+    };
+
+    var teams = Team.query(function() {
+        $scope.teams = $scope.pinteresting(teams, 5);
+    });
     $scope.selectedTeams = {};
-    $scope.$watch('myTeams', function() {
-        // when myTeams changes, update selectedTeams
-        angular.forEach($scope.myTeams, function(team) {
+    Auth.getCurrentUser().$promise.then(function(user) {
+        // when user loaded, update selectedTeams
+        angular.forEach(user.teams, function(team) {
             $scope.selectedTeams[team.name] = true;
         });
-    }, true);
+    });
 
     $scope.$watch('selectedTeams', function(selectedTeams) {
         // update user's teams when they change selection
@@ -25,8 +42,11 @@ angular.module('cpwApp')
                     }
                 });
                 var thisUser = Auth.getCurrentUser();
-                thisUser.teams = teams;
-                thisUser.$save();
+
+                if (!angular.equals(thisUser.teams, teams)) {
+                    thisUser.teams = teams;
+                    thisUser.$save();
+                }
             }
         });
     }, true);
@@ -38,6 +58,10 @@ angular.module('cpwApp')
             $scope.newTeamName = undefined;
         });
     };
+
+
+
+
 
     $scope.changePassword = function(form) {
         $scope.submitted = true;

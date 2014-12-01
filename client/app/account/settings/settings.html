@@ -1,6 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div flex layout="column" layout-align="center center" layout-fill>
+<div flex layout="column" layout-align="top center" layout-fill>
 
     <md-content class="md-padding">
         <div flex class="md-whiteframe-z2 login-form">
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <div flex>
-                <div layout="row" layout-align="space-around center">
-                    <team-card ng-repeat="team in teams" ng-model="selectedTeams[team.name]">{{ team.name }}</team-card>
+                <div layout="row" layout-align="space-around center" ng-repeat="teamRow in teams">
+                    <team-card ng-repeat="team in teamRow" ng-model="selectedTeams[team.name]">{{ team.name }}</team-card>
                 </div>
             </div>
             <div flex class="new-team-cont">
