@@ -2,6 +2,12 @@
 
 Pairs teammates together every week to hang out and get chicken and waffles, among other things.
 
+## Features
+
+- Pairs teammates together for weekly 1+1 time together where they can hang out and stuff.
+- Can also pair non-teammates, while prioritizing teammates.
+- Gravatar integration
+
 ## Installation
 
 1. acquire mongo
@@ -61,14 +67,6 @@ The process to pair teammates (in `/server/api/Match/Match.controller.js`) is as
     + either match with themselves
     + or match with other leftover non-teammates
 - store match in database, along with nonce for future
-
-
-## Features
-
-- Pairs teammates together for weekly 1+1 time together where they can hang out and stuff.
-- Can also pair non-teammates, while prioritizing teammates.
-- Gravatar integration
-- 
 
 
 ## Future Features

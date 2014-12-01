@@ -12,6 +12,7 @@ module.exports = function(app) {
     app.use('/api/matches', require('./api/Match'));
     app.use('/api/teams', require('./api/Team'));
     app.use('/api/users', require('./api/user'));
+    app.get('/api/todo', require('./api/todo'));
 
     app.use('/auth', require('./auth'));
 
