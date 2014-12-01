@@ -13,6 +13,7 @@ Pairs teammates together every week to hang out and get chicken and waffles, amo
 1. acquire mongo
 2. clone
 3. `npm install && bower install`
+4. `export EVENTBRITE_API_KEY=<your api key>`
 4. `grunt serve`
 5. [http://localhost:9000](http://localhost:9000)
 
