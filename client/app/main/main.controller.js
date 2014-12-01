@@ -5,7 +5,18 @@ angular.module('cpwApp')
 
     $scope.updateMatches = function() {
         Match.get().$promise.then(function(match) {
-            $scope.pairs = match.pairs;
+            // make the results pretty if you're logged in (you're always top right)
+            if (Auth.isLoggedIn()) {
+                $scope.pairs = match.pairs.sort(function(pair) {
+                    return pair.people.indexOf(Auth.getCurrentUser().email) !== -1;
+                }).reverse();
+                if ($scope.pairs[0].people[1] === Auth.getCurrentUser().email) {
+                    $scope.pairs[0].people = [Auth.getCurrentUser().email, $scope.pairs[0].people[0]];
+                }
+            } else {
+                // else, no worries
+                $scope.pairs = match.pairs;
+            }
         });
     };
 
