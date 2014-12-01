@@ -1,5 +1,27 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
+<md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">
+      <span>Full Bleed</span>
+    </h1>
+  </md-toolbar>
+  <md-content>
+    <md-list>
+      <md-item ng-repeat="item in messages">
+        <md-item-content>
+          <div class="md-tile-content">
+            <h3>{{item.what}}</h3>
+            <h4>{{item.who}}</h4>
+            <p>
+              {{item.notes}}
+            </p>
+          </div>
+        </md-item-content>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-item>
+    </md-list>
+  </md-content>
+
 <div class="container">
   <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
   <ul class="list-group">

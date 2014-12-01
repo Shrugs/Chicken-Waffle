@@ -20,7 +20,7 @@ angular.module('cpwApp')
         return input;
     };
 
-    var teams = Team.query(function() {
+    Team.query(function(teams) {
         $scope.teams = $scope.pinteresting(teams, 5);
     });
     $scope.selectedTeams = {};
@@ -54,7 +54,9 @@ angular.module('cpwApp')
     $scope.createNewTeam = function() {
         // post new team and then reload $scope.teams
         (new Team({name: $scope.newTeamName})).$save(function() {
-            $scope.teams = Team.query();
+            Team.query(function(teams) {
+                $scope.teams = $scope.pinteresting(teams, 5);
+            });
             $scope.newTeamName = undefined;
         });
     };
