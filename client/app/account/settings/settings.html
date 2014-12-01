@@ -8,10 +8,7 @@
             <div>
                 <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
                     <md-text-float label="Old Password" ng-model="user.oldPassword" type="password" required></md-text-float>
-                    <md-text-float label="New Password" ng-model="user.newPassword" type="password" required ng-minlength="3"></md-text-float>
-                    <p class="help-block" ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-                      Password must be at least 3 characters.
-                    </p>
+                    <md-text-float label="New Password" ng-model="user.newPassword" type="password" required></md-text-float>
                     <p class="help-block">{{ message }}</p>
                     <div>
                         <md-button type="submit">Change Password</md-button>
