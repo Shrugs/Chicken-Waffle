@@ -113,7 +113,7 @@ User.find({}).remove(function() {
     provider: 'local',
     email: 'yoko@ono.org',
     password: 'password',
-    team: [{name: 'Plastic Ono Band'}]
+    teams: [{name: 'Plastic Ono Band'}]
   },
   {
     provider: 'local',
@@ -140,7 +140,7 @@ User.find({}).remove(function() {
 
 Match.find({}).remove(function() {
     Match.create({
-        nonce: 5,
+        nonce: 0,
         pairs: [
             {
                 people: ['m@cond.in', 'mattcmultimedia@gmail.com']
