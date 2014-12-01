@@ -138,4 +138,6 @@ User.find({}).remove(function() {
   );
 });
 
-Match.find({}).remove();
+Match.find({}).remove(function() {
+    console.log('Removed Matches...');
+});
