@@ -17,18 +17,18 @@ exports.index = function(req, res) {
     });
 };
 
-// Get a single Match based on user id
-// @TODO(Shrugs) this
-exports.match = function(req, res) {
-    getMostRecentMatch(function (err, Match) {
-        if(err) { return handleError(res, err); }
-        if(!Match) { return res.send(404); }
-        // req.params.userId
-        return res.json(Match[0]);
-    });
-};
+// // Get a single Match based on user id
+// // @TODO(Shrugs) this
+// exports.match = function(req, res) {
+//     getMostRecentMatch(function (err, Match) {
+//         if(err) { return handleError(res, err); }
+//         if(!Match) { return res.send(404); }
+//         // req.params.userId
+//         return res.json(Match[0]);
+//     });
+// };
 
-//
+// generates all combinations of a user + teammate, given a user and a set of teams
 function combinations(user, teams) {
     // return pairs [first, second] of all possible combinations for a given user given his teams
     var combos = [];
@@ -38,6 +38,7 @@ function combinations(user, teams) {
         combos.push(_(teams[team.name])
             // actually, this is debatable; user-> user pairs might be a convenient way of removing edge cases towards te end of the matching process
             // -> where we have one person without a match (the user->user match will be valid)
+            // note: I'm leaving this comment for posterity, but the current algorithm just re-creates the user->user matches at the end
             .filter(function(teammate) {
                 // filter out [user, user] combos
                 return teammate.email !== user.email;
