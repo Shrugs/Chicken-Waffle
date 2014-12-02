@@ -92,7 +92,12 @@ The process to pair teammates (in `/server/api/Match/Match.controller.js`) is as
 
 ## Testing
 
-Nonexistent at the moment. I'm considering working on that.
+Tests available for backend controllers (`grunt test:server`).
+
+This was my first serious foray into actual unit testing, so the tests are pretty minimal. I don't have the time to invest in unit tests for the frontend, so those have gone unimplemented.
+
+I wrote tests last because I found them the least interesting portion of the development cycle, but I now realize that if I write them first, at least as a general idea, it'll help me during the programming phase. It'll also combat the fact that I now feel I am 'done' with the project and therefore don't want to work on it anymore, yet I still have to write tests.
+
 
 ## Notes
 
@@ -117,8 +122,9 @@ I tried out `angular-material` for the first time because I've started loving th
 That said, I'll probably try to use it again soon, and this time a bit more carefully to figure out what works and what doesn't.
 
 ----
-The hardest part of this project wasn't the algorithm (4 hours, mostly spent simultaneously on Facebook), but the webdev with its quirks.
+
+The hardest part of this project wasn't the algorithm (4 hours, mostly spent simultaneously on Facebook), but the webdev with its quirks and learning how to unit test angular and express apps.
 
 ## Todo
 
-- testing, mostly
+- frontend testing

@@ -607,36 +607,21 @@ module.exports = function (grunt) {
       ]);
     }
 
-    else if (target === 'client') {
-      return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'injector:sass',
-        'concurrent:test',
-        'injector',
-        'autoprefixer',
-        'karma'
-      ]);
-    }
-
-    else if (target === 'e2e') {
-      return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'env:test',
-        'injector:sass',
-        'concurrent:test',
-        'injector',
-        'wiredep',
-        'autoprefixer',
-        'express:dev',
-        'protractor'
-      ]);
-    }
+    // else if (target === 'client') {
+    //   return grunt.task.run([
+    //     'clean:server',
+    //     'env:all',
+    //     'injector:sass',
+    //     'concurrent:test',
+    //     'injector',
+    //     'autoprefixer',
+    //     'karma'
+    //   ]);
+    // }
 
     else grunt.task.run([
       'test:server',
-      'test:client'
+      // 'test:client'
     ]);
   });
 
