@@ -123,10 +123,6 @@ I tried out `angular-material` for the first time because I've started loving th
 
 That said, I'll probably try to use it again soon, and this time a bit more carefully to figure out what works and what doesn't.
 
-----
-
-
-
 ## Todo
 
 - frontend testing
