@@ -1,0 +1,17 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+<div ng-repeat="placeRow in places">
+    <div layout="row" layout-align="center center">
+        <div flex="28" class="place-card" ng-repeat="place in placeRow">
+            <md-content class="md-whiteframe-z3 md-padding">
+                <div layout="row">
+                    <div layout="column" layout-align="start center">
+                        <!-- <a ng-href="https://www.google.com/maps/place/{{place.vicinity | urlencode}}"></a> -->
+                        <md-button ng-href="https://www.google.com/maps/place/{{place.vicinity | urlencode}}">{{place.name}}</md-button>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </div>
+</div>
