@@ -27,7 +27,6 @@ var all = {
     // Secret for session, you will want to change this and make it an environment variable
     secrets: {
         session: 'cpw-secret',
-        eventbriteAPIKey: requireEnv('EVENTBRITE_API_KEY'),
         placesAPIKey: requireEnv('PLACES_API_KEY')
     },
 

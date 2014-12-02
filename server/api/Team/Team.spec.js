@@ -4,17 +4,17 @@ var should = require('should');
 var app = require('../../app');
 var request = require('supertest');
 
-describe('GET /api/Teams', function() {
+describe('GET /api/teams', function() {
 
-  it('should respond with JSON array', function(done) {
-    request(app)
-      .get('/api/Teams')
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .end(function(err, res) {
-        if (err) return done(err);
-        res.body.should.be.instanceof(Array);
-        done();
-      });
-  });
+    it('should respond with JSON array', function(done) {
+        request(app)
+            .get('/api/teams')
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function(err, res) {
+                if (err) return done(err);
+                res.body.should.be.instanceof(Array);
+                done();
+            });
+    });
 });
