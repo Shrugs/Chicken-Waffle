@@ -118,3 +118,7 @@ That said, I'll probably try to use it again soon, and this time a bit more care
 
 ----
 The hardest part of this project wasn't the algorithm (4 hours, mostly spent simultaneously on Facebook), but the webdev with its quirks.
+
+## Todo
+
+- testing, mostly
