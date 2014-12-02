@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/cpw-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };
