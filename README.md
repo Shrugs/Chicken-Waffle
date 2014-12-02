@@ -7,15 +7,19 @@ Pairs teammates together every week to hang out and get chicken and waffles, amo
 - Pairs teammates together for weekly 1+1 time together where they can hang out and stuff.
 - Can also pair non-teammates, while prioritizing teammates.
 - Gravatar integration
+- Google Places integration for figuring out what to do.
 
 ## Installation
 
 1. acquire mongo
 2. clone
 3. `npm install && bower install`
-4. `export EVENTBRITE_API_KEY=<your api key>`
+4. [Acquire Google Places Server API Key](https://developers.google.com/places/documentation/)
+4. `export PLACES_API_KEY=<your api key>`
 4. `grunt serve`
 5. [http://localhost:9000](http://localhost:9000)
+
+Note, because cryptojs (used for gravatar email hashing) claims that its main pacakge is `**/*.js`, which cannon simply be loaded, you'll want to manually change cryptojs/bower.json's `main` key to have `rollup/md5.js` as the value. This is just to keep everyone sane and keep grunt from inserting `**/*.js` into `index.html`.
 
 ## Usage
 
@@ -72,7 +76,10 @@ The process to pair teammates (in `/server/api/Match/Match.controller.js`) is as
 
 ## Future Features
 
-- Event API integration for easy things to do during 1+1 times.
+- More event API integration for easy things to do during 1+1 times.
+    + Eventbrite
+    + Yelp
+    + Etc
 - Admin console for adding/removing users and team associations.
     + currently you must log into that user and modify associations from there
     + if I have time, I'll add this, but it's not necessary
