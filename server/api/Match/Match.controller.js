@@ -60,6 +60,11 @@ exports.create = function(req, res) {
 
     // first, get a list of all of the users
     User.find().exec(function(err, users) {
+        if (users.length === 0) {
+            // whelp.
+            console.log('NO USERS');
+            return res.send(201);
+        }
         // then we need to match users up based on the teams they're in
         // start with the users in the most teams, because that's a good heuristic for who has the most options
         // and therefore who everyone else's matches should be governed by
@@ -133,7 +138,6 @@ exports.create = function(req, res) {
             // we want to select a pair for the first user based on nonce
             // then we can probably ranomize the rest and it isn't a big deal
             // if it _is_ a big deal, we can use a second (or third, etc) nonce to keep track of second- and third-most popular teammembers pairs
-            console.log(nonce, users);
             if (possiblePairs[nonce][0] !== possiblePairs[0][0]) {
                 // nonce is over first user bounds
                 nonce = 0;
