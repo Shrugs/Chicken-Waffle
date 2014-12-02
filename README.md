@@ -19,7 +19,7 @@ Pairs teammates together every week to hang out and get chicken and waffles, amo
 4. `grunt serve`
 5. [http://localhost:9000](http://localhost:9000)
 
-Note, because cryptojs (used for gravatar email hashing) claims that its main pacakge is `**/*.js`, which cannon simply be loaded, you'll want to manually change cryptojs/bower.json's `main` key to have `rollup/md5.js` as the value. This is just to keep everyone sane and keep grunt from inserting `**/*.js` into `index.html`.
+Note, because cryptojs (used for gravatar email hashing) claims that its main pacakge is `**/*.js`, which cannot simply be loaded, you'll want to manually change cryptojs/bower.json's `main` key to have `rollup/md5.js` as the value. This is just to keep everyone sane and keep grunt from inserting `**/*.js` into `index.html`.
 
 ## Usage
 
@@ -44,6 +44,8 @@ The database is seeded with the various musicians and relationships as below:
     + george@harrison.org
     + tom@petty.org
     + roy@orbison.org
+
+All with default password `password`.
 
 You can sign up at `/signup` or by clicking the link in the navbar. After signing up, you can modify your team associations and add new teams.
 
