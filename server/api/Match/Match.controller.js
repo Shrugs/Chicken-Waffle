@@ -6,9 +6,7 @@ var User = require('../user/user.model');
 
 
 function getMostRecentMatch(cb) {
-    Match.find({
-      timestamp: {$lt: Date.now()}
-    }).sort({timestamp: -1}).limit(1).exec(cb)
+    Match.find().sort({timestamp: -1}).limit(1).exec(cb)
 }
 
 // Get first Match
@@ -108,6 +106,8 @@ exports.create = function(req, res) {
 
         // therefore, get the most recent match to get the last nonce
         getMostRecentMatch(function(err, match) {
+            if (err) return res.send(500);
+
             var pairs = [];
 
 
@@ -132,7 +132,7 @@ exports.create = function(req, res) {
             // we want to select a pair for the first user based on nonce
             // then we can probably ranomize the rest and it isn't a big deal
             // if it _is_ a big deal, we can use a second (or third, etc) nonce to keep track of second- and third-most popular teammembers pairs
-
+            console.log(nonce, users);
             if (possiblePairs[nonce][0] !== possiblePairs[0][0]) {
                 // nonce is over first user bounds
                 nonce = 0;

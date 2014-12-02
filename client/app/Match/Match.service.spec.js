@@ -8,11 +8,11 @@ describe('Service: Match', function () {
   // instantiate service
   var Match;
   beforeEach(inject(function (_Match_) {
-    Match = _Match_;
+        Match = _Match_;
   }));
 
   it('should do something', function () {
-    expect(!!Match).toBe(true);
+        expect(!!Match).toBe(true);
   });
 
 });
